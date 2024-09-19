@@ -1,8 +1,16 @@
+import sys
+from collections import deque
+
+input = sys.stdin.readline
+
 N = int(input())
 
-arr = []
+arr = [False] * 2000001
+
 for _ in range(N):
-    arr.append(int(input()))
-arr.sort(reverse=True)
-for num in arr:
-    print(num)
+    num = int(input())
+    arr[num] = True
+
+for i in range(1000000, -1000001, -1):
+    if arr[i]:
+        print(i)
