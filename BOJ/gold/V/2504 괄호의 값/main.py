@@ -1,44 +1,35 @@
-stack = []
+from collections import deque
+import sys
+
+stack = deque()
+string = input()
 result = 0
-tmp = 0
-wrong_flag = False
-for char in input():
-    if char == ")":
-        while stack:
-            if stack[-1] == "(":
-                if tmp:
-                    tmp *= 2
-                else:
-                    tmp = 2
-                stack.pop()
-                break
-            elif stack[-1] == "[":
-                wrong_flag = True
-                break
-            else:
-                tmp += stack.pop()
-        stack.append(tmp)
-        tmp = 0
-    elif char == "]":
-        while stack:
-            if stack[-1] == "[":
-                if tmp:
-                    tmp *= 3
-                else:
-                    tmp = 3
-                stack.pop()
-                break
-            elif stack[-1] == "(":
-                wrong_flag = True
-                break
-            else:
-                tmp += stack.pop()
-        stack.append(tmp)
-        tmp = 0
+tmp = 1
+for i, c in enumerate(string):
+    if c == "(":
+        tmp *= 2
+        stack.append((c, i))
+    elif c == "[":
+        tmp *= 3
+        stack.append((c, i))
     else:
-        stack.append(char)
-    if wrong_flag:
-        print(0)
-        break
+        if not stack:
+            print(0)
+            sys.exit(0)
+        t_c, t_i = stack.pop()
+        if c == ")" and t_c == "(":
+            tmp //= 2
+            if i - t_i == 1:
+                result += 2 * tmp
+        elif c == "]" and t_c == "[":
+            tmp //= 3
+            if i - t_i == 1:
+                result += 3 * tmp
+        else:
+            print(0)
+            sys.exit(0)
+
+if stack:
+    print(0)
 else:
-    print(sum(stack))
+    print(result)
