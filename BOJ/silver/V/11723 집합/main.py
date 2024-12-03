@@ -1,20 +1,20 @@
 import sys
 
 input = sys.stdin.readline
-s = [False] * 21
+s = 0
 M = int(input())
 
 for _ in range(M):
-    command = input().split()
+    command = input().strip().split()
     if command[0] == "add":
-        s[int(command[1])] = True
+        s |= 1 << int(command[1])
     elif command[0] == "remove":
-        s[int(command[1])] = False
+        s &= ~(1 << int(command[1]))
     elif command[0] == "check":
-        print(1 if s[int(command[1])] else 0)
+        print(1 if s & (1 << int(command[1])) else 0)
     elif command[0] == "toggle":
-        s[int(command[1])] = not s[int(command[1])]
+        s ^= 1 << int(command[1])
     elif command[0] == "all":
-        s = [True] * 21
-    else:
-        s = [False] * 21
+        s = (1 << 21) - 1
+    elif command[0] == "empty":
+        s = 0
