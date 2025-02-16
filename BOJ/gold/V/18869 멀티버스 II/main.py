@@ -6,6 +6,5 @@ for _ in range(M):
     order = {sorted_planets[i]: i for i in range(len(sorted_planets))}
     order = tuple([order[planet] for planet in planets])
     order_map[order] = order_map.get(order, 0) + 1
-
 result = sum(order * (order - 1) // 2 for order in order_map.values())
 print(result)
