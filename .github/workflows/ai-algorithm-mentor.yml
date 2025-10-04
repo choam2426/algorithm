@@ -1,0 +1,20 @@
+name: 🤖 AI Algorithm Mentor
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  ai-review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: call AI Algorithm Mentor
+        uses: choam2426/AI-Algorithm-Mentor@main
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LLM_PROVIDER: anthropic
+          LLM_MODEL: claude-sonnet-4-5-20250929
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          REVIEW_LANGUAGE: korean
