@@ -2,7 +2,7 @@ name: 🤖 AI Algorithm Mentor
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main, master ]
 
 jobs:
   ai-review:
@@ -10,11 +10,10 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: call AI Algorithm Mentor
-        uses: choam2426/AI-Algorithm-Mentor@main
+      - uses: choam2426/AI-Algorithm-Mentor@v5
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          LLM_PROVIDER: openai
-          LLM_MODEL: gpt-5
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          LLM_PROVIDER: google
+          MODEL_NAME: gemini-3-pro-preview
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           REVIEW_LANGUAGE: korean
