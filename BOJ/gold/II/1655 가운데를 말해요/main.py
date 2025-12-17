@@ -1,4 +1,5 @@
 # https://www.acmicpc.net/problem/1655
+
 import heapq as hq
 import sys
 
