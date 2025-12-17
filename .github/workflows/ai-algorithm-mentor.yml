@@ -13,7 +13,7 @@ jobs:
       - uses: choam2426/AI-Algorithm-Mentor@v5
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          LLM_PROVIDER: google
+          LLM_PROVIDER: anthropic
           MODEL_NAME: gemini-3-pro-preview
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           REVIEW_LANGUAGE: korean
