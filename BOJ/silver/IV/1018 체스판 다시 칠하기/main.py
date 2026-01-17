@@ -1,3 +1,4 @@
+# https://www.acmicpc.net/problem/1018
 board = []
 result = 64
 
