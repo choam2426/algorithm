@@ -1,7 +1,6 @@
 # https://www.acmicpc.net/problem/11729
 move_logs = []
 
-
 def hanoi_tower(n: int, current_pole, target_pole, other_pole):
     if n == 1:
         move_logs.append((current_pole, target_pole))
