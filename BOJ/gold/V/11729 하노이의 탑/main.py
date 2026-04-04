@@ -10,7 +10,6 @@ def hanoi_tower(n: int, current_pole, target_pole, other_pole):
         move_logs.append((current_pole, target_pole))
         hanoi_tower(n - 1, other_pole, target_pole, current_pole)
 
-
 N = int(input())
 
 hanoi_tower(N, 1, 3, 2)
