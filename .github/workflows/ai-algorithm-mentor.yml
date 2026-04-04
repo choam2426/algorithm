@@ -10,7 +10,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: choam2426/AI-Algorithm-Mentor@v5
+      - uses: choam2426/AI-Algorithm-Mentor@main
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LLM_PROVIDER: anthropic
